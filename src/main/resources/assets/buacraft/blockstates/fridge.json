@@ -1,0 +1,42 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "0": "buacraft:blocks/borderless_iron",
+            "1": "buacraft:blocks/handle",
+            "particle": "#0"
+        },
+        "model": "buacraft:fridge"
+    },
+    "variants": {
+        "normal": [
+            {
+                "model": "buacraft:fridge"
+            }
+        ],
+        "inventory": [
+            {
+                "y": 180
+            }
+        ],
+        "facing": {
+            "north": {
+            },
+            "south": {
+                "y": 180
+            },
+            "west": {
+                "y": 270
+            },
+            "east": {
+                "y": 90
+            },
+            "up": {
+                "x": -90
+            },
+            "down": {
+                "x": 90
+            }
+        }
+    }
+}

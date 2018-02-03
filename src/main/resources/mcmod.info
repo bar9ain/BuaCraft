@@ -1,16 +1,16 @@
 [
 {
-  "modid": "furniture",
-  "name": "How 'Bout That Furniture",
-  "description": "Adds multiple different types to Minecraft such as tables, chairs, doorbells, and more.",
-  "version": "1.0.2",
-  "mcversion": "1.11",
-  "url": "https://zundrel.com",
+  "modid": "buacraft",
+  "name": "BuaCraft",
+  "description": "",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
   "updateUrl": "",
-  "authorList": ["Zundrel"],
-  "credits": "Big thanks to the MrCrayfish for inspiration and for his SittableUtil.",
-  "logoFile": "title.png",
+  "authorList": ["bar9ain"],
+  "credits": "",
+  "logoFile": "",
   "screenshots": [],
-  "dependencies": ["mod_MinecraftForge"]
+  "dependencies": []
 }
 ]

@@ -1,0 +1,6 @@
+item.coin_silver.name=Silver Coin
+item.coin_gold.name=Gold Coin
+item.coin_bronze.name=Bronze Coin
+
+tile.trader.name=Trader
+container.trader=Trader
