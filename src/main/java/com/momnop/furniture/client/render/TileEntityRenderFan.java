@@ -9,13 +9,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.ClientTickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vyrus.init.Reference;
 
 import org.lwjgl.opengl.GL11;
 
 import com.momnop.furniture.blocks.BlockFan;
 import com.momnop.furniture.blocks.FurnitureBlocks;
 import com.momnop.furniture.client.models.FanModel;
-import com.momnop.furniture.info.ModInfo;
 import com.momnop.furniture.tiles.TileEntityCeilingFan;
 
 public class TileEntityRenderFan extends TileEntitySpecialRenderer<TileEntityCeilingFan> {
@@ -41,7 +41,7 @@ public class TileEntityRenderFan extends TileEntitySpecialRenderer<TileEntityCei
 			if (fan.getValue(BlockFan.POWERED)) {
 				GL11.glPushMatrix();
 				GL11.glTranslated(x + 0.5, y, z + 0.5);
-				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ModInfo.MODID + ":" + "textures/models/fan.png"));
+				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(Reference.MODID + ":" + "textures/models/fan.png"));
 				GL11.glRotated(-rot, 0, 1, 0);
 				model.renderModel();
 				GL11.glPopMatrix();
@@ -53,7 +53,7 @@ public class TileEntityRenderFan extends TileEntitySpecialRenderer<TileEntityCei
 			
 			GL11.glPushMatrix();
 			GL11.glTranslated(x + 0.5, y, z + 0.5);
-			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(ModInfo.MODID + ":" + "textures/models/fan.png"));
+			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(Reference.MODID + ":" + "textures/models/fan.png"));
 			GL11.glRotated(-rot, 0, 1, 0);
 			model.renderModel();
 			GL11.glPopMatrix();

@@ -2,11 +2,10 @@ package com.momnop.furniture.handlers;
 
 import java.util.ArrayList;
 
-import com.momnop.furniture.info.ModInfo;
-
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import vyrus.init.Reference;
 
 public class SoundHandler {
 	public static SoundEvent doorbell;
@@ -31,7 +30,7 @@ public class SoundHandler {
 	 * @return The SoundEvent
 	 */
 	private static SoundEvent registerSound(String soundName) {
-		final ResourceLocation soundID = new ResourceLocation(ModInfo.MODID, soundName);
+		final ResourceLocation soundID = new ResourceLocation(Reference.MODID, soundName);
 		sounds.add(new SoundEvent(soundID).setRegistryName(soundID));
 		return GameRegistry.register(new SoundEvent(soundID).setRegistryName(soundID));
 	}

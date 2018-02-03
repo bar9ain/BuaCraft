@@ -1,9 +1,8 @@
 package com.momnop.furniture.blocks;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Nonnull;
+import com.momnop.furniture.client.render.RenderRegistry;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -11,24 +10,13 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
-import com.momnop.furniture.Furniture;
-import com.momnop.furniture.client.render.RenderRegistry;
-import com.momnop.furniture.info.ModInfo;
+import vyrus.init.Reference;
 
 public class BlockFurnitureFacingContainer extends BlockFurniture {
 	
@@ -38,7 +26,7 @@ public class BlockFurnitureFacingContainer extends BlockFurniture {
 		super(materialIn, hardness, type, unlocalizedName, tab);
 		setDefaultState(this.getDefaultState().withProperty(FACING, EnumFacing.NORTH));
 		setRegistryName(unlocalizedName);
-        setUnlocalizedName(getRegistryName().toString().replace(ModInfo.MODID + ":", ""));
+        setUnlocalizedName(getRegistryName().toString().replace(Reference.MODID + ":", ""));
         RenderRegistry.registryBlocks.add(this);
         FurnitureBlocks.register(this);
         setCreativeTab(tab);

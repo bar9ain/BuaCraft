@@ -2,14 +2,13 @@ package com.momnop.furniture.client.render;
 
 import java.util.ArrayList;
 
-import com.momnop.furniture.info.ModInfo;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vyrus.init.Reference;
 
 public final class RenderRegistry {
 	public static ArrayList<Block> registryBlocks = new ArrayList<Block>();
@@ -29,7 +28,7 @@ public final class RenderRegistry {
 				.register(
 						Item.getItemFromBlock(block),
 						0,
-						new ModelResourceLocation(ModInfo.MODID + ":"
+						new ModelResourceLocation(Reference.MODID + ":"
 								+ block.getUnlocalizedName().substring(5),
 								"inventory"));
 	}
@@ -42,7 +41,7 @@ public final class RenderRegistry {
 				.register(
 						item,
 						0,
-						new ModelResourceLocation(ModInfo.MODID + ":"
+						new ModelResourceLocation(Reference.MODID + ":"
 								+ item.getUnlocalizedName().substring(5),
 								"inventory"));
 	}

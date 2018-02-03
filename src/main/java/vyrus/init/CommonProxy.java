@@ -1,4 +1,4 @@
-package com.momnop.furniture.proxies;
+package vyrus.init;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
