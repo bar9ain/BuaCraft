@@ -22,3 +22,7 @@ gradle
 eclipse
 run
 *.txt
+*.bat
+*.gradle
+gradle.*
+gradlew
