@@ -3,6 +3,7 @@ package vyrus.blocks.fridge;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
@@ -29,8 +30,8 @@ public class FridgeGui extends GuiContainer
 	@Override
 	protected void drawGuiContainerForegroundLayer(int par1, int par2)
 	{
-		this.fontRendererObj.drawString("Fridge", (this.xSize / 2) - 44, 6, 4210752);
-		this.fontRendererObj.drawString("Inventory", 8, this.ySize - 94, 4210752);
+		this.fontRendererObj.drawString(I18n.format("tile.fridge.name"), (this.xSize / 2) - 44, 6, 4210752);
+		this.fontRendererObj.drawString(I18n.format("key.categories.inventory"), 8, this.ySize - 94, 4210752);
 	}
 
 	@Override

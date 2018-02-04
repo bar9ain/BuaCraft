@@ -4,6 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
@@ -47,6 +48,10 @@ public class FridgeContainer extends Container {
 		if (slot != null && slot.getHasStack()) {
 			ItemStack current = slot.getStack();
 			previous = current.copy();
+			
+			if (!(current.getItem() instanceof ItemFood))
+				return null;
+			
 			if (fromSlot < 9) {
 				if (!this.mergeItemStack(current, 9, 45, true))
 					return null;

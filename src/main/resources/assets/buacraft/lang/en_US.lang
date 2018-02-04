@@ -4,3 +4,6 @@ item.coin_bronze.name=Bronze Coin
 
 tile.trader.name=Trader
 container.trader=Trader
+
+tile.fridge.name=Fridge
+itemGroup.decoration=Decoration

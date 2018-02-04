@@ -1,7 +1,10 @@
 package vyrus.blocks.fridge;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -9,6 +12,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryHelper;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -33,8 +37,9 @@ public class FridgeBlock extends ContainerBlock implements ITileEntityProvider {
 		this.setSoundType(SoundType.METAL);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(new ResourceLocation(Reference.MODID, name));
+		this.setCreativeTab(BuaCraft.tabDecoration);
 		GameRegistry.register(this);
-		GameRegistry.register(new ItemBlock(this), getRegistryName());
+		GameRegistry.register(new ItemBlock(this).setMaxStackSize(1), getRegistryName());
 		GameRegistry.registerTileEntity(FridgeEntity.class, Reference.MODID + ":EntityFridge");
 	}
 
@@ -67,24 +72,29 @@ public class FridgeBlock extends ContainerBlock implements ITileEntityProvider {
 
 	@Override
 	public void onBlockHarvested(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player) {
-		if (worldIn.getBlockState(pos.down()).getBlock() == ModBlocks.FRIDGE) {
-			worldIn.destroyBlock(pos.down(), false);
+		if (worldIn.getBlockState(pos.up()).getBlock() == ModBlocks.FRIDGEHELPER) {
+			worldIn.destroyBlock(pos.up(), true);
 		}
 	}
 
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState blockstate) {
-	    FridgeEntity te = (FridgeEntity) world.getTileEntity(pos);
-	    InventoryHelper.dropInventoryItems(world, pos, te);
-	    super.breakBlock(world, pos, blockstate);
+		FridgeEntity te = (FridgeEntity) world.getTileEntity(pos);
+		InventoryHelper.dropInventoryItems(world, pos, te);
+		super.breakBlock(world, pos, blockstate);
 	}
 
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		return  new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 2.0D, 1.0D);
+		return new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 2.0D, 1.0D);
 	}
 
 	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
 		return super.canPlaceBlockAt(worldIn, pos) && worldIn.isAirBlock(pos.up());
-	};
+	}
+
+	@Override
+	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
+		worldIn.setBlockState(pos.up(), ModBlocks.FRIDGEHELPER.getDefaultState());
+	}
 }

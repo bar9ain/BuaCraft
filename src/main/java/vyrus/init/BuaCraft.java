@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import vyrus.gui.GuiHandler;
 import vyrus.network.PacketHandler;
+import vyrus.tabs.TabDecoration;
 
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, acceptedMinecraftVersions = "[1.10.2]")
 public class BuaCraft {
@@ -17,6 +18,7 @@ public class BuaCraft {
 	@Mod.Instance(Reference.MODID)
 	public static BuaCraft INSTANCE;
 
+	public static TabDecoration tabDecoration = new TabDecoration();
 	@SidedProxy
 	public static CommonProxy proxy;
 	@Mod.EventHandler
