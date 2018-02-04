@@ -7,3 +7,8 @@ container.trader=Trader
 
 tile.fridge.name=Fridge
 itemGroup.decoration=Decoration
+
+item.red_power_head.name=Red Power Helmet
+item.red_power_chest.name=Red Power Chestplate
+item.red_power_legs.name=Red Power Leggings
+item.red_power_boots.name=Red Power Boots

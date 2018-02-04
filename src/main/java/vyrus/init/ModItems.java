@@ -9,14 +9,12 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModItems {
-	public static Item coin_silver, coin_gold;
-
-	public static String[] items = { "coin_gold", "coin_silver", "coin_bronze" };
+	public static String[] items = { "coin_gold", "coin_silver", "coin_bronze", "buacrew" };
 	public static ArrayList<Item> list = new ArrayList<Item>();
 
 	public static void init() {
 		for (String name : items) {
-			Item item = new Item().setUnlocalizedName(name).setRegistryName(name);
+			Item item = new Item().setUnlocalizedName(name).setRegistryName(name).setCreativeTab(BuaCraft.tabItems);
 			GameRegistry.register(item);
 			list.add(item);
 		}
