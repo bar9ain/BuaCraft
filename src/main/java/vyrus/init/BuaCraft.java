@@ -1,6 +1,8 @@
 package vyrus.init;
 
 import net.minecraft.client.model.ModelBiped;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -49,6 +51,7 @@ public class BuaCraft {
 
 		public void init(FMLInitializationEvent e) {
 			NetworkRegistry.INSTANCE.registerGuiHandler(INSTANCE, new GuiHandler());
+			MinecraftForge.EVENT_BUS.register(new CommonEventHandler());
 		}
 
 		public void postInit(FMLPostInitializationEvent e) {
