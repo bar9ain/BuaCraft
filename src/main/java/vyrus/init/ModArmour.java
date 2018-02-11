@@ -16,8 +16,9 @@ import vyrus.armour.ArmourPack;
 
 public class ModArmour {
 	private static String[] normalList = new String[] { "red_power", "yellow_power", "blue_power", "green_power",
-			"pink_power", "headless_horseman" };
+			"pink_power", "headless_horseman", "witch", "freddy", "jason", "myers", "scream" };
 	private static String[] noBootsWithOverlay = new String[] { "scarecrow" };
+	private static String[] noBootsNoOverlay = new String[] {"skeleton", "banshee", "frankenstein", "werewolf", "ghost" };
 	private static ArrayList<ArmourPack> packList = new ArrayList<ArmourPack>();
 
 	public static void init() {
@@ -31,6 +32,12 @@ public class ModArmour {
 		for (String skin : noBootsWithOverlay) {
 			ArmourPack pack = new ArmourPack(EnumHelper.addArmorMaterial(skin, Reference.MODID + ":" + skin, 5,
 					new int[] { 1, 2, 3, 1 }, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F), false, true);
+			packList.add(pack);
+		}
+		
+		for (String skin : noBootsNoOverlay) {
+			ArmourPack pack = new ArmourPack(EnumHelper.addArmorMaterial(skin, Reference.MODID + ":" + skin, 5,
+					new int[] { 1, 2, 3, 1 }, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F), false, false);
 			packList.add(pack);
 		}
 	}

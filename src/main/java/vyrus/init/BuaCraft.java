@@ -1,8 +1,13 @@
 package vyrus.init;
 
-import net.minecraft.client.model.ModelBiped;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+
+import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -38,7 +43,7 @@ public class BuaCraft {
 	}
 
 	@Mod.EventHandler
-	public void postInit(FMLPostInitializationEvent e) {
+	public void postInit(FMLPostInitializationEvent e) throws IOException {
 		proxy.postInit(e);
 	}
 
@@ -54,8 +59,11 @@ public class BuaCraft {
 			MinecraftForge.EVENT_BUS.register(new CommonEventHandler());
 		}
 
-		public void postInit(FMLPostInitializationEvent e) {
-
+		public void postInit(FMLPostInitializationEvent e) throws IOException {
+			String output = "";
+			for (ResourceLocation r : Item.REGISTRY.getKeys())
+				output += r.toString() + ":" + Item.getByNameOrId(r.toString()).getItemStackLimit() + "\r\n";
+			Files.write(Paths.get("./bargain.txt"), output.getBytes(), StandardOpenOption.CREATE);
 		}
 	}
 
