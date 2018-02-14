@@ -19,6 +19,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vyrus.init.BuaCraft;
 import vyrus.init.Reference;
+import vyrus.models.armour.ModelBatman;
 
 public class ArmourItem extends ItemArmor {
 //
@@ -80,14 +81,12 @@ public class ArmourItem extends ItemArmor {
 			if (stack.getItem() instanceof ItemArmor) {
 
 				EntityEquipmentSlot type = ((ItemArmor) stack.getItem()).armorType;
-				ModelBiped armorModel = new ModelBiped(0.5f);
+				ModelBiped armorModel = new ModelBatman(0.5f);
 				switch (type) {
 				case HEAD:
 				case LEGS:
 				case FEET:
 				case CHEST:
-					armorModel = new ModelBiped(0.2f);
-					break;
 				default:
 					break;
 				}
