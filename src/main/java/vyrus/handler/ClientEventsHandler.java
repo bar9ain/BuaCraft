@@ -19,6 +19,7 @@ import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import vyrus.init.Reference;
+import vyrus.models.ModelBatman;
 import vyrus.models.ModelDasher;
 
 public class ClientEventsHandler {
@@ -74,9 +75,11 @@ public class ClientEventsHandler {
 	private ModelPlayer getModel(String name) {
 		switch (name) {
 		default:
-			return new ModelPlayer(0.5F, true);
+			return new ModelPlayer(1F, true);
 		case "dasher":
 			return new ModelDasher();
+		case "batman":
+			return new ModelBatman();
 		}
 	}
 }

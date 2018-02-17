@@ -16,6 +16,10 @@ public class ModSkins {
 			ItemSkin skin = new ItemSkin(name);
 			skins.add(skin);
 		}
+		for (String name : capeList) {
+			ItemSkin skin = new ItemSkin(name, true);
+			skins.add(skin);
+		}
 	}
 
 	@SideOnly(Side.CLIENT)
