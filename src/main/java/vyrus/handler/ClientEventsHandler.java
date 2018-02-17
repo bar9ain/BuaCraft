@@ -22,6 +22,7 @@ import vyrus.init.Reference;
 import vyrus.models.ModelBatman;
 import vyrus.models.ModelDasher;
 import vyrus.models.ModelHuman;
+import vyrus.models.ModelKrampus;
 
 public class ClientEventsHandler {
 	@SubscribeEvent(priority = EventPriority.LOWEST)
@@ -81,6 +82,8 @@ public class ClientEventsHandler {
 			return new ModelDasher();
 		case "batman":
 			return new ModelBatman();
+		case "krampus":
+			return new ModelKrampus();
 		}
 	}
 }

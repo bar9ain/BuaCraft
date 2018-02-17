@@ -37,12 +37,12 @@ public class ModelHuman extends ModelPlayer {
 			this.bipedBodyWear.setRotationPoint(0.0F, 0.0F, 0.0F);
 
 			this.bipedLeftArmwear = new ModelRenderer(this, 48, 48);
-			this.bipedLeftArmwear.addBox(-1.0F, -2.5F, -2.0F, 4, 12, 4, 0.75F);
-			this.bipedLeftArmwear.setRotationPoint(5.0F, 2.0F, 0.0F);
+			this.bipedLeftArmwear.addBox(0.0F, -2.5F, -2.0F, 3, 12, 4, 0.75F);
+			this.bipedLeftArmwear.setRotationPoint(5.0F, 2.5F, 0.0F);
 
 			this.bipedRightArmwear = new ModelRenderer(this, 40, 32);
-			this.bipedRightArmwear.addBox(-3.0F, -2.5F, -2.0F, 4, 12, 4, 0.75F);
-			this.bipedRightArmwear.setRotationPoint(-5.0F, 2.0F, 10.0F);
+			this.bipedRightArmwear.addBox(-3.0F, -2.5F, -2.0F, 3, 12, 4, 0.75F);
+			this.bipedRightArmwear.setRotationPoint(-5.0F, 2.5F, 0.0F);
 
 			this.bipedLeftLegwear = new ModelRenderer(this, 0, 48);
 			this.bipedLeftLegwear.addBox(-2.0F, 0.0F, -2.0F, 4, 12, 4, 0.75F);

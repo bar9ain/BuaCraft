@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-    "textures": {
-        "layer0": "buacraft:items/blue_power_head"
-    }
-}

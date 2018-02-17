@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-    "textures": {
-        "layer0": "buacraft:items/red_power_chest"
-    }
-}
