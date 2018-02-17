@@ -14,7 +14,9 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
-import vyrus.gui.GuiHandler;
+import vyrus.handler.ClientEventsHandler;
+import vyrus.handler.EventsHandler;
+import vyrus.handler.GuiHandler;
 import vyrus.network.PacketHandler;
 import vyrus.tabs.TabDecoration;
 import vyrus.tabs.TabItems;
@@ -51,12 +53,12 @@ public class BuaCraft {
 		public void preInit(FMLPreInitializationEvent e) {
 			ModBlocks.init();
 			ModItems.init();
-			ModArmour.init();
+			ModSkins.init();
 		}
 
 		public void init(FMLInitializationEvent e) {
 			NetworkRegistry.INSTANCE.registerGuiHandler(INSTANCE, new GuiHandler());
-			MinecraftForge.EVENT_BUS.register(new CommonEventHandler());
+			MinecraftForge.EVENT_BUS.register(new EventsHandler());
 		}
 
 		public void postInit(FMLPostInitializationEvent e) throws IOException {
@@ -73,12 +75,13 @@ public class BuaCraft {
 			super.preInit(e);
 			ModBlocks.initModels();
 			ModItems.initModels();
-			ModArmour.initModels();
+			ModSkins.initModels();
 		}
 
 		@Override
 		public void init(FMLInitializationEvent e) {
 			super.init(e);
+			MinecraftForge.EVENT_BUS.register(new ClientEventsHandler());
 		}
 	}
 

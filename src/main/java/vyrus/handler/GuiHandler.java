@@ -1,4 +1,4 @@
-package vyrus.gui;
+package vyrus.handler;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;

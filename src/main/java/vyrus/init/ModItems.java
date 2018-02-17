@@ -29,5 +29,4 @@ public class ModItems {
 		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(
 				new ResourceLocation(Reference.MODID, item.getUnlocalizedName().substring(5)), "inventory"));
 	}
-
 }
