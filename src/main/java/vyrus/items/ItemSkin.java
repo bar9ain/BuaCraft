@@ -51,10 +51,7 @@ public class ItemSkin extends Item {
 
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
-		NBTTagCompound entityData = player.getEntityData();
-		NBTTagCompound persistedData = entityData.getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG);
-		entityData.setTag(EntityPlayer.PERSISTED_NBT_TAG, persistedData);
-		persistedData.setString("buacraft_skin", stack.getItem().getRegistryName().getResourcePath());
+		player.setCustomNameTag(stack.getItem().getRegistryName().getResourcePath());
 		return new ActionResult(EnumActionResult.SUCCESS, stack);
 	}
 
@@ -64,8 +61,7 @@ public class ItemSkin extends Item {
 			inUse = false;
 			return;
 		}
-		String skinname = ((EntityPlayer) entity).getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG)
-				.getString("buacraft_skin");
+		String skinname = ((EntityPlayer) entity).getCustomNameTag();
 		String itemname = stack.getItem().getRegistryName().getResourcePath();
 		inUse = itemname.equals(skinname);
 	}

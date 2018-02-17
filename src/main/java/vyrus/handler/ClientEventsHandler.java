@@ -27,11 +27,9 @@ public class ClientEventsHandler {
 		final EntityPlayer player = event.getEntityPlayer();
 		if (!(player instanceof EntityPlayer))
 			return;
+		final String skinname = player.getCustomNameTag();
 		NBTTagCompound entityData = player.getEntityData();
-		NBTTagCompound persistedData = entityData.getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG);
-		entityData.setTag(EntityPlayer.PERSISTED_NBT_TAG, persistedData);
-		String skinname = persistedData.getString("buacraft_skin");
-		String oldSkin = entityData.getString("buacraft_oldskin");
+		String oldSkin = entityData.getString("buacraft_oldskin"); 
 
 		if (skinname.isEmpty() || skinname.equals("random") || oldSkin.equals(skinname))
 			return;
@@ -73,7 +71,7 @@ public class ClientEventsHandler {
 		// "textures/cape.png"));
 	}
 
-	private static ModelPlayer getModel(String name) {
+	private ModelPlayer getModel(String name) {
 		switch (name) {
 		default:
 			return new ModelPlayer(0.5F, true);
