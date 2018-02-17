@@ -21,6 +21,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import vyrus.init.Reference;
 import vyrus.models.ModelBatman;
 import vyrus.models.ModelDasher;
+import vyrus.models.ModelHuman;
 
 public class ClientEventsHandler {
 	@SubscribeEvent(priority = EventPriority.LOWEST)
@@ -75,7 +76,7 @@ public class ClientEventsHandler {
 	private ModelPlayer getModel(String name) {
 		switch (name) {
 		default:
-			return new ModelPlayer(1F, true);
+			return new ModelHuman();
 		case "dasher":
 			return new ModelDasher();
 		case "batman":

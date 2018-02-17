@@ -13,7 +13,7 @@ public class ModelBatman extends ModelHuman {
 	private ModelRenderer righEar1, righEar2, righEar3, leftEar1, leftEar2, leftEar3;
 
 	public ModelBatman() {
-		super();
+		super(true);
 		belt = new ModelRenderer(this, 12, 16);
 		belt.addBox(-0.5F, 7.25F, -2.5F, 1, 2, 1, 0.5F);
 		belt.addBox(-3.5F, 7.25F, -2.5F, 1, 2, 1, 0.5F);
@@ -55,13 +55,6 @@ public class ModelBatman extends ModelHuman {
 
 		leftEar2 = new ModelRenderer(this, 16, 0);
 		leftEar2.addBox(3.3F, -10.5F, 1.3F, 1, 1, 2, 0.5F / 4F);
-
-		this.bipedHeadwear.isHidden = true;
-		this.bipedBodyWear.isHidden = true;
-		this.bipedLeftArmwear.isHidden = true;
-		this.bipedRightArmwear.isHidden = true;
-		this.bipedLeftLegwear.isHidden = true;
-		this.bipedRightLegwear.isHidden = true;
 
 		bipedHead.addChild(righEar1);
 		bipedHead.addChild(righEar2);
