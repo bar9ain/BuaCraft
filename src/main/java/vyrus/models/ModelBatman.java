@@ -15,46 +15,44 @@ public class ModelBatman extends ModelHuman {
 	public ModelBatman() {
 		super(true);
 		belt = new ModelRenderer(this, 12, 16);
-		belt.addBox(-0.5F, 7.25F, -2.5F, 1, 2, 1, 0.5F);
-		belt.addBox(-3.5F, 7.25F, -2.5F, 1, 2, 1, 0.5F);
-		belt.addBox(2.5F, 7.25F, -2.5F, 1, 2, 1, 0.5F);
-		belt.addBox(-4.5F, 7.25F, -0.5F, 1, 2, 1, 0.5F);
-		belt.addBox(3.5F, 7.25F, -0.5F, 1, 2, 1, 0.5F);
+	    belt.addBox(-1.5F, 6.5F, -2.5F, 3, 3, 1, 0.0F);
+	    belt.addBox(-3.5F, 6.5F, -2.5F, 1, 3, 1, 0.0F);
+	    belt.addBox(2.5F, 6.5F, -2.5F, 1, 3, 1, 0.0F);
+	    belt.addBox(-4.5F, 6.5F, -0.5F, 1, 3, 1, 0.0F);
+	    belt.addBox(3.5F, 6.5F, -0.5F, 1, 3, 1, 0.0F);
 
 		leftspike = new ModelRenderer(this, 48, 33);
-		leftspike.setRotationPoint(0.0F, 0.0F, 0.0F);
-		leftspike.addBox(2.5F, 2.0F, 0.0F, 3, 7, 0, 0.0F);
+		leftspike.addBox(2.5F, 2.5F, 0.0F, 3, 7, 0, 0.0F);
 
 		rightspike = new ModelRenderer(this, 42, 33);
-		rightspike.setRotationPoint(0.0F, 0.0F, 0.0F);
-		rightspike.addBox(-5.5F, 2.0F, 0.0F, 3, 7, 0, 0.0F);
+		rightspike.addBox(-5.5F, 2.5F, 0.0F, 3, 7, 0, 0.0F);
 
 		cape = new ModelRenderer(this, 6, 32);
-		cape.addBox(-4.0F, 0.0F, 2.6F, 8, 2, 1, 0.05F);
+		cape.addBox(-4.0F, 0, 2, 8, 2, 1);
 
 		cape1 = new ModelRenderer(this, 4, 35);
-		cape1.addBox(-5.0F, 2.0F, 2.6F, 10, 4, 1, 0.05F);
+		cape1.addBox(-5.0F, 2, 2, 10, 4, 1);
 		cape.addChild(cape1);
 
 		cape2 = new ModelRenderer(this, 2, 40);
-		cape2.addBox(-6.0F, 6.0F, 2.6F, 12, 6, 1, 0.05F);
+		cape2.addBox(-6.0F, 6, 2, 12, 6, 1);
 		cape.addChild(cape2);
 
 		cape3 = new ModelRenderer(this, 1, 47);
-		cape3.addBox(-6.5F, 12.0F, 2.6F, 13, 11, 1, 0.05F);
+		cape3.addBox(-6.5F, 12, 2, 13, 11, 1);
 		cape.addChild(cape3);
 
 		righEar1 = new ModelRenderer(this, 16, 0);
-		righEar1.addBox(-4.3F, -11.5F, 3.3F, 1, 2, 1, 0.5F / 4F);
+		righEar1.addBox(-4F, -10F, 3F, 1, 2, 1);
 
 		righEar2 = new ModelRenderer(this, 16, 0);
-		righEar2.addBox(-4.3F, -10.5F, 1.3F, 1, 1, 2, 0.5F / 4F);
+		righEar2.addBox(-4F, -9F, 1F, 1, 1, 2);
 
 		leftEar1 = new ModelRenderer(this, 16, 0);
-		leftEar1.addBox(3.3F, -11.5F, 3.3F, 1, 2, 1, 0.5F / 4F);
+		leftEar1.addBox(3, -10F, 3F, 1, 2, 1);
 
 		leftEar2 = new ModelRenderer(this, 16, 0);
-		leftEar2.addBox(3.3F, -10.5F, 1.3F, 1, 1, 2, 0.5F / 4F);
+		leftEar2.addBox(3, -9F, 1F, 1, 1, 2);
 
 		bipedHead.addChild(righEar1);
 		bipedHead.addChild(righEar2);

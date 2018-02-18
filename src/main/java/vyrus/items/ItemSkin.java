@@ -45,7 +45,7 @@ public class ItemSkin extends Item {
 	@SideOnly(Side.CLIENT)
 	public void initModels() {
 		ModelLoader.setCustomModelResourceLocation(this, 0,
-				new ModelResourceLocation(new ResourceLocation(Reference.MODID, "skins/" + name), "inventory"));
+				new ModelResourceLocation(new ResourceLocation(Reference.MODID, "skins/" + name.toLowerCase()), "inventory"));
 	}
 
 	@Override

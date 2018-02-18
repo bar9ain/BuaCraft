@@ -1,5 +1,6 @@
 package vyrus.handler;
 
+import java.lang.reflect.Constructor;
 import java.util.Map;
 import java.util.Random;
 
@@ -20,6 +21,7 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import vyrus.init.Reference;
 import vyrus.models.ModelBatman;
+import vyrus.models.ModelChrisCringle;
 import vyrus.models.ModelDasher;
 import vyrus.models.ModelHuman;
 import vyrus.models.ModelKrampus;
@@ -42,19 +44,7 @@ public class ClientEventsHandler {
 
 		renderModel(event.getRenderer(), skinname);
 		renderTexture(player, skinname);
-
-		Random rand = new Random();
-		double motionX = rand.nextGaussian() * 0.02D;
-		double motionY = rand.nextGaussian() * 0.02D;
-		double motionZ = rand.nextGaussian() * 0.02D;
-
-		double width = player.width;
-		double height = player.height;
-		player.worldObj.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE,
-				player.getPosition().getX() + rand.nextFloat() * width * 2.0F - width,
-				player.getPosition().getY() + 0.5D + rand.nextFloat() * height,
-				player.getPosition().getZ() + rand.nextFloat() * width * 2.0F - width, motionX, motionY, motionZ);
-
+		spawnParticle(player);
 	}
 
 	private void renderModel(RenderPlayer render, String skinname) {
@@ -73,20 +63,33 @@ public class ClientEventsHandler {
 				.getPrivateValue(NetworkPlayerInfo.class, playerInfo, 1);
 		playerTextures.put(Type.SKIN, new ResourceLocation(Reference.MODID, "textures/skins/" + skinname + ".png"));
 		playerTextures.remove(Type.CAPE);
-		// playerTextures.put(Type.CAPE, new ResourceLocation(Reference.MODID,
-		// "textures/cape.png"));
 	}
 
 	private ModelPlayer getModel(String name) {
-		switch (name) {
-		default:
+		try {
+			Class<?> c = Class.forName("vyrus.models.Model" + name);
+			Constructor<?> cons = c.getConstructor();
+			Object object = cons.newInstance();
+			return (ModelHuman) object;
+		} catch (Exception e) {
 			return new ModelHuman();
-		case "dasher":
-			return new ModelDasher();
-		case "batman":
-			return new ModelBatman();
-		case "krampus":
-			return new ModelKrampus();
+		}
+	}
+
+	private void spawnParticle(EntityPlayer player) {
+		for (int i = 0; i < 5; i++) {
+			Random rand = new Random();
+			double motionX = rand.nextGaussian() * 0.02D;
+			double motionY = rand.nextGaussian() * 0.02D;
+			double motionZ = rand.nextGaussian() * 0.02D;
+
+			double width = player.width;
+			double height = player.height;
+			player.worldObj.spawnParticle(EnumParticleTypes.VILLAGER_ANGRY,
+					player.getPosition().getX() + rand.nextFloat() * width * 2.0F - width,
+					player.getPosition().getY() + 0.5D + rand.nextFloat() * height,
+					player.getPosition().getZ() + rand.nextFloat() * width * 2.0F - width, motionX, motionY, motionZ);
+
 		}
 	}
 }

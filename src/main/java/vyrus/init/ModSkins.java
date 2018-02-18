@@ -7,7 +7,24 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import vyrus.items.ItemSkin;
 
 public class ModSkins {
-	private static String[] normalList = new String[] { "dasher", "spiderman", "batman", "krampus" };
+	private static String[] normalList = new String[] {
+			"Batman",
+			"Blitzen",
+			"ChrisCringle",
+			"Comet",
+			"CoolClaus",
+			"Cupid",
+			"Dancer",
+			"Dishevelf",
+			"Donner",
+			"Krampus",
+			"MistletoesTheBigfoot",
+			"Noelf",
+			"Prancer",
+			"Tinself",
+			"Vixen",
+			"YuletideYeti"
+	};
 	private static ArrayList<ItemSkin> skins = new ArrayList<ItemSkin>();
 
 	public static void init() {
