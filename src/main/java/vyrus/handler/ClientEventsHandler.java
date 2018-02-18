@@ -27,12 +27,14 @@ import vyrus.models.ModelKrampus;
 public class ClientEventsHandler {
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public void onRenderPlayerPre(RenderPlayerEvent.Pre event) {
+		if (!event.getEntityPlayer().worldObj.isRemote)
+			return;
 		final EntityPlayer player = event.getEntityPlayer();
 		if (!(player instanceof EntityPlayer))
 			return;
 		final String skinname = player.getCustomNameTag();
 		NBTTagCompound entityData = player.getEntityData();
-		String oldSkin = entityData.getString("buacraft_oldskin"); 
+		String oldSkin = entityData.getString("buacraft_oldskin");
 
 		if (skinname.isEmpty() || skinname.equals("random") || oldSkin.equals(skinname))
 			return;
@@ -45,13 +47,14 @@ public class ClientEventsHandler {
 		double motionX = rand.nextGaussian() * 0.02D;
 		double motionY = rand.nextGaussian() * 0.02D;
 		double motionZ = rand.nextGaussian() * 0.02D;
-		
+
 		double width = player.width;
 		double height = player.height;
-		player.worldObj.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE, player.getPosition().getX() + rand.nextFloat() * width * 2.0F - width,
-				player.getPosition().getY() + 0.5D + rand.nextFloat() * height, player.getPosition().getZ() + rand.nextFloat() * width * 2.0F - width, motionX,
-				motionY, motionZ);
-		
+		player.worldObj.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE,
+				player.getPosition().getX() + rand.nextFloat() * width * 2.0F - width,
+				player.getPosition().getY() + 0.5D + rand.nextFloat() * height,
+				player.getPosition().getZ() + rand.nextFloat() * width * 2.0F - width, motionX, motionY, motionZ);
+
 	}
 
 	private void renderModel(RenderPlayer render, String skinname) {
